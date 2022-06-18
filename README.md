@@ -8,7 +8,7 @@ reducing the result to best 5 matches
 ## GET
 | | |
 |---|---|
-|end point | http://127.0.0.1:5000/test/ |
+|end point | http://127.0.0.1:5000/matcher/ |
 body type | json 
 body | { "name":"Tulrampator" } 
 response | { "data": [ [ 1.0, "Tulrampator" ], [ 0.7619047619047619, "Farampator" ], [ 0.6666666666666666, "Mibampator" ], [ 0.631578947368421, "Tramadol" ], [ 0.6086956521739131, "Tramiprosate" ] ] }

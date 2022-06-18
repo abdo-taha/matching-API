@@ -19,17 +19,16 @@ text_rdd = sc.textFile('chem_file.txt').repartition(16)
 
 
 class Test(Resource):
-    def get(self):
+    def post(self):
         parser.add_argument("name")
         args = parser.parse_args()
         
         mapped = text_rdd.map(lambda name:get_close_matches(args["name"],[name]))
         reduced = mapped.reduce(lambda x,y:_nlargest(5,x+y))
-        # ret = reduced.take(5)
         return {"data":reduced}
 
 
-api.add_resource(Test,'/test/')
+api.add_resource(Test,'/matcher/')
 
 if __name__ == '__main__':
     app.run(debug=true)
